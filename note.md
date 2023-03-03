@@ -81,3 +81,25 @@
 
     When you want to provide a set of providers which should be available everywhere out-of-the-box (e.g., helpers, database connections, etc.), make the module global with the @Global() decorator.
 
+
+### Middleware
+
+    Middleware is a function which is called before the route handler
+
+    You implement custom Nest middleware in either a function, or in a class with an @Injectable() decorator. 
+
+    apply in module:
+
+    eg:
+        configure(consumer: MiddlewareConsumer) {consumer.apply(LoggerMiddleware).forRoutes('cats');}
+        configure(consumer: MiddlewareConsumer) {consumer.apply(LoggerMiddleware).forRoutes({ path: 'cats', method: RequestMethod.GET });}
+        configure(consumer: MiddlewareConsumer) {consumer.apply(LoggerMiddleware).forRoutes(CatsController);}
+        consumer.apply(LoggerMiddleware).exclude({ path: 'cats', method: RequestMethod.GET },
+            { path: 'cats', method: RequestMethod.POST },'cats/(.*)',).forRoutes(CatsController);
+
+    function middleware
+
+    export function logger(req: Request, res: Response, next: NextFunction) {
+        console.log(`Request...`);
+        next();
+    };
