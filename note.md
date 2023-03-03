@@ -4,7 +4,9 @@
                             Controllers always belong to a module,
 
     controller.spec.ts      unit tests for the controller
-    
+
+    services.ts                
+
     module.ts               
 
 
@@ -47,3 +49,20 @@
         }
 
 
+### Providers
+    Providers are a fundamental concept in Nest.
+
+    Many of the basic Nest classes may be treated as a provider – services, repositories, factories, helpers, and so on.
+
+    a provider is that it can be injected as a dependency
+
+    When the application is bootstrapped, every dependency must be resolved, and therefore every provider has to be instantiated. 
+
+    @Injectable, in the normal case of a singleton, returning the existing instance if it has already been requested elsewhere
+
+    @Optional()  can make a provider optional   
+
+    @Inject()       Property-based injection 
+
+#### Providers.Services
+    @Injectable 

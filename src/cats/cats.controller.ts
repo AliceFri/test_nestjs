@@ -1,5 +1,6 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { CreateCatDto } from './cats.dto';
+import { CatsService } from './cats.services';
 
 @Controller('cats')
 export class CatsController {
@@ -7,16 +8,18 @@ export class CatsController {
     // async findAll(): Promise<string> {
     // return 'This action returns all cats';
     // }    
-
-  @Get()
+    constructor(private catsService: CatsService) {}
+  
+  
+    @Get()
     findAll(): string {
         return 'This action returns all cats';
     }
 
   @Get(':id')
-  findOne(@Param('id') id: string): string {
-      return `This action returns a #${id} cat`;
-  }
+    findOne(@Param('id') id: string): string {
+        return `This action returns a #${id} cat`;
+    }
 
     @Post()
   async create(@Body() createCatDto: CreateCatDto) {
