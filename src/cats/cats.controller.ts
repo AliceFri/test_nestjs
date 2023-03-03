@@ -13,7 +13,7 @@ export class CatsController {
   
     @Get()
     findAll(): string {
-        return 'This action returns all cats';
+        return '2 This action returns all cats';
     }
 
   @Get(':id')

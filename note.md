@@ -66,3 +66,18 @@
 
 #### Providers.Services
     @Injectable 
+
+
+### Modules
+    providers       the providers  that may be shared at least across this module
+
+    controllers     the set of controllers defined in this module which have to be instantiated
+
+    imports         the list of imported modules that export the providers which are required in this module
+
+    exports         export the subset of pproviders of this module
+
+    In Nest, modules are singletons by default, and thus you can share the same instance of any provider between multiple modules effortlessly.
+
+    When you want to provide a set of providers which should be available everywhere out-of-the-box (e.g., helpers, database connections, etc.), make the module global with the @Global() decorator.
+
