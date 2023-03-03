@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, HttpException, HttpStatus, Param, Post } from '@nestjs/common';
 import { CreateCatDto } from './cats.dto';
 import { CatsService } from './cats.services';
 
@@ -18,12 +18,15 @@ export class CatsController {
 
   @Get(':id')
     findOne(@Param('id') id: string): string {
-        return `This action returns a #${id} cat`;
+        // return `This action returns a #${id} cat`;
+        const a: any = 1;
+        console.log(a.ddd.dd)
+        throw new HttpException('Forbidden', HttpStatus.FORBIDDEN);
     }
 
     @Post()
   async create(@Body() createCatDto: CreateCatDto) {
-      return 'This action adds a new cat';
+      throw new HttpException('Forbidden', HttpStatus.FORBIDDEN);
   }
 
 

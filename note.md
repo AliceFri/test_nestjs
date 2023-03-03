@@ -103,3 +103,10 @@
         console.log(`Request...`);
         next();
     };
+
+--------
+
+
+### Exception
+    
+    Nest comes with a built-in exceptions layer which is responsible for processing all unhandled exceptions across an application.
